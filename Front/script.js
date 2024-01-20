@@ -47,6 +47,8 @@ window.onload = function(){
         console.log(bot_response_json);
         BotResponse(bot_response_json);
         
+        //音声再生
+        audio_play(bot_response_json);
 
         //ここまで-サーバに送信
         
@@ -86,6 +88,16 @@ function BotResponse(bot_response){/*こっちが本命 */
     div.textContent = bot_response;
 }
 
+//音声再生
+async function audio_play(prompt){
+  const uttr = new SpeechSynthesisUtterance(prompt);
+  uttr.lang = 'ja-JP';
+  speechSynthesis.speak(uttr);
+
+}
+
+
+
 //llamaにリクエストを送信する関数
 async function askForLlama(user_input) {
     var messages = [
@@ -118,3 +130,6 @@ async function askForLlama(user_input) {
     
     }
   }
+
+
+
