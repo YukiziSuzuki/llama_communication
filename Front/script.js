@@ -8,7 +8,7 @@
 //例外：何も入力されなかった場合？何も返さない
 
 //llama.cppのエンドポイントURL(今回はローカル)
-const endpoint = "http://localhost:8000/v1/completion";
+const endpoint = "http://localhost:8000/v1/chat/completions";
 
 //llamaに送信するメッセージ(system:事前プロンプト、user:ユーザ入力文章)
 
@@ -41,8 +41,9 @@ window.onload = function(){
         div.textContent = user_input.value;
         //サーバに送信
 
-        bot_response = askForLlama(user_input)
+        bot_response = askForLlama(user_input.value);
         
+        BotResponse(bot_response);
 
         //ここまで-サーバに送信
         user_input.value = "";
