@@ -12,14 +12,14 @@ const endpoint = "http://localhost:8000/v1/completion";
 
 //llamaに送信するメッセージ(system:事前プロンプト、user:ユーザ入力文章)
 
-
+var bot_response_json = "";
 
 
 
 window.onload = function(){
     userInputButton = document.getElementById('user_submit');
 
-    userInputButton.addEventListener('click', () => {
+    userInputButton.addEventListener('click', async () => {
         let user_input = document.getElementById('user_input');
         // 空行の場合送信不可
         if (!user_input.value || !user_input.value.match(/\S/g)) return false;
@@ -41,7 +41,9 @@ window.onload = function(){
         div.textContent = user_input.value;
         //サーバに送信
 
-        bot_response = askForLlama(user_input)
+        await(askForLlama(user_input));
+
+        BotResponse(bot_response_json);
         
 
         //ここまで-サーバに送信
@@ -104,7 +106,7 @@ async function askForLlama(user_input) {
       if (response.ok) {
         const result = await response.json();
         //llamaからの返答
-        return result.choices[0].message.content;
+        bot_response_json =  result.choices[0].message.content;
       } else {
         console.error('リクエストに失敗しました。');
       }
