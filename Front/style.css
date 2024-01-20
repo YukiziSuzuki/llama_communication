@@ -27,17 +27,14 @@ img{
 .chat_container{
     position: fixed;
     bottom:50px;
-    top:465px;
+    top:420px;
     width:100%;
-    height:calc(465 - 50)px;
+    height:calc(465)px;
     background-color:rgba(200,200,200,0.9);
     padding: 5px 0;
 }
 
-.text_field{
-    width:80%;
-    background-color: #eeeeee;
-}
+
 
 /*botの吹き出し*/
 .chatbot-left{
@@ -46,10 +43,10 @@ img{
     word-wrap: break-word;
     margin-right: 20px;
     padding:3px 10px;
-    background: #e6f7ed;
+    background: #e6f7f4;
     text-align: left;
     border-radius: 0 9px 9px 9px;
-    color: #379043;
+    color: #379078;
 }
 
 /*自分の吹き出し*/
@@ -59,7 +56,7 @@ img{
     word-wrap: break-word;
     margin-left: 20px;
     padding:3px 10px;
-    background: #459968;
+    background: #459993;
     text-align: left;
     border-radius: 9px 0 9px 9px;
     color: #FFF;
@@ -105,4 +102,16 @@ img{
     position: fixed;
     bottom: 0;
     width: 100%;
+    background-color: white;
+}
+
+
+.text_field{
+    width:80%;
+    background-color: #eeeeee;
+    height:1.2em;
+    
+}
+.send_icon{
+    color: #09858a;
 }

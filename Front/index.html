@@ -8,9 +8,11 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     -->
-        <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
         <script src = "./script.js"></script>
+        <script src="https://kit.fontawesome.com/638dc5a475.js" crossorigin="anonymous"></script>
     <!--
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
@@ -31,7 +33,12 @@
         <div class="user_textbox">
             <form onsubmit="return false">
                 <input type="text" class="text_field" id="user_input"  placeholder= "テキストを入力" autofocus>
-                <input type="submit" value="送信" id="user_submit">
+
+                <a type="submit" class="send_icon">
+                    <i class="fa-solid fa-paper-plane" id="user_submit">
+                    <!--    <input type="submit" value="送信" id="user_submit">-->
+                    </i>
+                </a>
 
             </form>
             

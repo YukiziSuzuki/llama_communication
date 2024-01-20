@@ -29,6 +29,7 @@ window.onload = function(){
         //Enterで送信しようとしたとき
         //未実装、後回し
         //なんかできてた
+        //できなくなりました
         
         // ulとliを作り、右寄せのスタイルを適用し投稿する
         const ul = document.getElementById('chat_ul');
@@ -55,7 +56,7 @@ window.onload = function(){
     botInputButton = document.getElementById('bot_submit');
 
     botInputButton.addEventListener('click', () => {/*こっちは偽物*/
-        //function BotResponse(){/*こっちが本命 */
+
             //サーバから受信
             let bot_response = document.getElementById('bot_response');
             // 空行の場合送信不可
@@ -109,8 +110,11 @@ async function askForLlama(user_input) {
         bot_response_json =  result.choices[0].message.content;
       } else {
         console.error('リクエストに失敗しました。');
+        bot_response_json =  "[エラー]リクエストに失敗しました。";    
       }
     } catch (error) {
       console.error('エラーが発生しました:', error);
+      bot_response_json =  "[エラー]サーバーとの接続に失敗しました。";    
+    
     }
   }
