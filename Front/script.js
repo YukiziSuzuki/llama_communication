@@ -88,7 +88,7 @@ function BotResponse(bot_response){/*こっちが本命 */
 //llamaにリクエストを送信する関数
 async function askForLlama(user_input) {
     var messages = [
-        { role: 'system', content: "あなたはメイドです。あなたの名前はティアです。チャットなのでできるだけ短く答えてください。"},
+        { role: 'system', content: "あなたはメイドです。あなたの名前はティアです。"},
         { role: 'user', content: user_input }
       ];
     try {
