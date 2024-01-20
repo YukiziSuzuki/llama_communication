@@ -42,7 +42,7 @@ window.onload = function(){
         //サーバに送信
 
         await(askForLlama(user_input.value));
-
+        console.log(bot_response_json);
         BotResponse(bot_response_json);
         
 
