@@ -8,7 +8,7 @@
 //例外：何も入力されなかった場合？何も返さない
 
 //llama.cppのエンドポイントURL(今回はローカル)
-const endpoint = "http://localhost:8000/v1/completion";
+const endpoint = "http://localhost:8000/v1/chat/completions";
 
 //llamaに送信するメッセージ(system:事前プロンプト、user:ユーザ入力文章)
 
@@ -41,7 +41,7 @@ window.onload = function(){
         div.textContent = user_input.value;
         //サーバに送信
 
-        await(askForLlama(user_input));
+        await(askForLlama(user_input.value));
         console.log(bot_response_json);
         BotResponse(bot_response_json);
         
@@ -88,7 +88,7 @@ function BotResponse(bot_response){/*こっちが本命 */
 //llamaにリクエストを送信する関数
 async function askForLlama(user_input) {
     var messages = [
-        { role: 'system', content: 'You are a helpful assistant.' },
+        { role: 'system', content: "あなたはメイドです。あなたの名前はティアです。チャットなのでできるだけ短く答えてください。"},
         { role: 'user', content: user_input }
       ];
     try {
