@@ -1,0 +1,102 @@
+body{
+    font-family: "MS Pゴシック";
+    background-image: url(./character_image.png);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+ul{
+    padding: 0;
+}
+li{
+    list-style: none;
+    padding:3px 0;
+}
+h1{
+    text-align: center;
+}
+
+.character_image{
+    height:300px;
+}
+
+img{
+    width:100%;
+    object-fit:cover
+}
+
+.chat_container{
+    position: absolute;
+    bottom:0px;
+    
+    width:100%;
+    height:200px;
+    background-color:rgba(200,200,200,0.9);
+    padding: 5px 0;
+}
+
+.text_field{
+    width:80%;
+    background-color: #eeeeee;
+}
+
+/*botの吹き出し*/
+.chatbot-left{
+    margin-right: 20px;
+    padding:3px 10px;
+    background: #e6f7ed;
+    text-align: left;
+    border-radius: 0 9px 9px 9px;
+    color: #379043;
+}
+
+/*自分の吹き出し*/
+.chatbot-right{
+    margin-left: 20px;
+    padding:3px 10px;
+    background: #459968;
+    text-align: right;
+    border-radius: 9px 0 9px 9px;
+    color: #FFF;
+}
+
+.left{
+    text-align: left;
+}
+
+.right{
+    text-align: right;
+}
+
+.chat_container {
+    /*横向きのスクロール禁止*/
+    overflow-x: hidden;
+    /*縦向きのスクロール許可*/
+    overflow-y: scroll;
+    /*スマホでは指でスクロール*/
+    -webkit-overflow-scrolling: touch;
+}
+
+#chat-ul > li{
+    position: relative;
+    /* display: block; */
+    width: 100%;
+    padding-bottom: 10px;
+    word-wrap: break-word;
+}
+
+#chat-ul > li > div {
+    display: inline-block;
+    box-sizing: border-box;
+    min-height: 23px;
+    max-width: 70%;
+    padding: 7px 13px;
+    font-size: 16px;
+    line-height: 1.3em;
+    position: relative;
+}
+
+.user_textbox{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
