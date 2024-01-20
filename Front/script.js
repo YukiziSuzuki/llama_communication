@@ -40,6 +40,7 @@ window.onload = function(){
         li.appendChild(div);
         div.classList.add('chatbot-right');
         div.textContent = user_input.value;
+        user_input.value = "";
         //サーバに送信
 
         await(askForLlama(user_input.value));
@@ -48,7 +49,6 @@ window.onload = function(){
         
 
         //ここまで-サーバに送信
-        user_input.value = "";
         
     });
     
