@@ -25,7 +25,7 @@ img{
 }
 
 .chat_container{
-    position: absolute;
+    position: fixed;
     bottom:0px;
     
     width:100%;
@@ -96,7 +96,7 @@ img{
 }
 
 .user_textbox{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
