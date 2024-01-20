@@ -7,6 +7,15 @@
 //ボタンを押したら送信される
 //例外：何も入力されなかった場合？何も返さない
 
+//llama.cppのエンドポイントURL(今回はローカル)
+const endpoint = "http://localhost:8000/v1/completion";
+
+//llamaに送信するメッセージ(system:事前プロンプト、user:ユーザ入力文章)
+
+
+
+
+
 window.onload = function(){
     userInputButton = document.getElementById('user_submit');
 
@@ -19,6 +28,7 @@ window.onload = function(){
     
         //Enterで送信しようとしたとき
         //未実装、後回し
+        //なんかできてた
         
         // ulとliを作り、右寄せのスタイルを適用し投稿する
         const ul = document.getElementById('chat_ul');
@@ -30,6 +40,11 @@ window.onload = function(){
         div.classList.add('chatbot-right');
         div.textContent = user_input.value;
         //サーバに送信
+
+        bot_response = askForLlama(user_input)
+        
+
+        //ここまで-サーバに送信
         user_input.value = "";
         
     });
@@ -57,3 +72,43 @@ window.onload = function(){
     });
 };
 
+function BotResponse(bot_response){/*こっちが本命 */
+    const ul = document.getElementById('chat_ul');
+    const li = document.createElement('li');
+    const div = document.createElement('div');
+    li.classList.add('left');
+    ul.appendChild(li);
+    li.appendChild(div);
+    div.classList.add('chatbot-left');
+    div.textContent = bot_response;
+}
+
+//llamaにリクエストを送信する関数
+async function askForLlama(user_input) {
+    var messages = [
+        { role: 'system', content: 'You are a helpful assistant.' },
+        { role: 'user', content: user_input }
+      ];
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          messages: messages
+        })
+      });
+  
+      if (response.ok) {
+        const result = await response.json();
+        //llamaからの返答
+        return result.choices[0].message.content;
+      } else {
+        console.error('リクエストに失敗しました。');
+      }
+    } catch (error) {
+      console.error('エラーが発生しました:', error);
+    }
+  }
