@@ -63,6 +63,9 @@ window.onload = function(){
         user_input.disabled = false;
         user_input.style.backgroundColor = "#eeeeee";
         user_input.placeholder = "テキストを入力";
+        //音声再生
+        audio_play(bot_response_json);
+
         //ここまで-サーバに送信
         
     });
@@ -107,6 +110,16 @@ function BotResponse(bot_response){/*こっちが本命 */
     console.log(0,element.scrollHeight);
 }
 
+//音声再生
+async function audio_play(prompt){
+  const uttr = new SpeechSynthesisUtterance(prompt);
+  uttr.lang = 'ja-JP';
+  speechSynthesis.speak(uttr);
+
+}
+
+
+
 //llamaにリクエストを送信する関数
 async function askForLlama(user_input) {
     var messages = [
@@ -139,3 +152,6 @@ async function askForLlama(user_input) {
     
     }
   }
+
+
+
