@@ -1,3 +1,10 @@
+@font-face { 
+    /* ① ここにfont-familyで指定したい名前を書く*/
+    font-family: "Jiyucho";
+    src: url(./fonts/Jiyucho.ttf) format(truetype);
+}
+
+
 body{
     font-family: "MS Pゴシック";
     background-image: url(./character_image.png);
@@ -42,8 +49,6 @@ img{
     /*スマホでは指でスクロール*/
     -webkit-overflow-scrolling: touch;
 }
-
-
 
 /*botの吹き出し*/
 .chatbot-left{
@@ -103,6 +108,28 @@ img{
     line-height: 1.3em;
     position: relative;
 }
+#loading_text{
+    color:#4a795f;
+    animation: floating-y 1.8s ease-in-out infinite alternate-reverse;
+    font-family: "Jiyucho";
+    display: relative;
+    bottom:0;
+    text-shadow:1px 1px 0 #FFF, -1px -1px 0 #FFF,
+    -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+    0px 1px 0 #FFF,  0-1px 0 #FFF,
+    -1px 0 0 #FFF, 1px 0 0 #FFF;
+}
+@keyframes floating-y {
+    0% {
+      transform: translateY(-10%);
+    }
+    100% {
+      transform: translateY(10%);
+    }
+  }
+
+
+
 
 .user_textarea{
     position: fixed;

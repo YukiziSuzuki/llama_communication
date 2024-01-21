@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TeareTalk</title>
+    <title>TearTalk</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--
@@ -27,10 +27,13 @@
     </div>-->
     <div class="chat_container">
         <ul id="chat_ul"></ul>
-        
+        <div id="loading_text">
+            ティアが入力中…
+        </div>
 
 
         <div class="user_textarea">
+
             <form onsubmit="return false">
                 <input type="text" class="user_textbox" id="user_input"  placeholder= "テキストを入力" autofocus>
 

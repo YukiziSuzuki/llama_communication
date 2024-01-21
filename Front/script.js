@@ -18,7 +18,8 @@ var bot_response_json = "";
 
 window.onload = function(){
     userInputButton = document.getElementById('user_submit');
-
+    loading_text = document.getElementById('loading_text');
+    loading_text.style.visibility = "hidden";
     userInputButton.addEventListener('click', async () => {
         let user_input = document.getElementById('user_input');
         // 空行の場合送信不可
@@ -51,6 +52,9 @@ window.onload = function(){
         //サーバに送信
 
         //[考え中…]の処理
+        loading_text = document.getElementById('loading_text');
+        loading_text.style.visibility = "visible";  //入力中の表示
+        //
         user_input.disabled = true;
         user_input.placeholder = "";
         user_input.style.backgroundColor = "#aBa7a9";
@@ -60,13 +64,26 @@ window.onload = function(){
         BotResponse(bot_response_json);
         
         
+        loading_text.style.visibility = "hidden";  //入力中の表示
         user_input.disabled = false;
         user_input.style.backgroundColor = "#eeeeee";
         user_input.placeholder = "テキストを入力";
+        loading_text.style.visibility = "hidden";  //入力中の表示
+
+        //ここまで-サーバに送信
+        //画面スクロール
+            
+        const scroll_after_send = document.getElementById('chat_ul');
+        scroll_after_send.scrollIntoView({
+            behavior: "smooth",
+            block: "end"
+        });
+
+
+
         //音声再生
         audio_play(bot_response_json);
 
-        //ここまで-サーバに送信
         
     });
     
@@ -102,12 +119,6 @@ function BotResponse(bot_response){/*こっちが本命 */
     li.appendChild(div);
     div.classList.add('chatbot-left');
     div.textContent = bot_response;
-    const element = document.getElementById('chat_ul');
-    element.scrollIntoView({
-        behavior: "smooth",
-        block: "end"
-    });
-    console.log(0,element.scrollHeight);
 }
 
 //音声再生
