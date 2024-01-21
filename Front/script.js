@@ -40,14 +40,29 @@ window.onload = function(){
         li.appendChild(div);
         div.classList.add('chatbot-right');
         div.textContent = user_input.value;
-        user_input.value = "";
+        user_input.value = "";    
+        const element = document.getElementById('chat_ul');
+        element.scrollIntoView({
+            behavior: "smooth",
+            block: "end"
+        });
+        console.log(0,element.scrollHeight);
+
         //サーバに送信
 
+        //[考え中…]の処理
+        user_input.disabled = true;
+        user_input.placeholder = "";
+        user_input.style.backgroundColor = "#aBa7a9";
+        
         await(askForLlama(user_input.value));
         console.log(bot_response_json);
         BotResponse(bot_response_json);
         
-
+        
+        user_input.disabled = false;
+        user_input.style.backgroundColor = "#eeeeee";
+        user_input.placeholder = "テキストを入力";
         //ここまで-サーバに送信
         
     });
@@ -84,6 +99,12 @@ function BotResponse(bot_response){/*こっちが本命 */
     li.appendChild(div);
     div.classList.add('chatbot-left');
     div.textContent = bot_response;
+    const element = document.getElementById('chat_ul');
+    element.scrollIntoView({
+        behavior: "smooth",
+        block: "end"
+    });
+    console.log(0,element.scrollHeight);
 }
 
 //llamaにリクエストを送信する関数

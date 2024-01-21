@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AIコミュニケーション</title>
+    <title>TeareTalk</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--
@@ -30,9 +30,9 @@
         
 
 
-        <div class="user_textbox">
+        <div class="user_textarea">
             <form onsubmit="return false">
-                <input type="text" class="text_field" id="user_input"  placeholder= "テキストを入力" autofocus>
+                <input type="text" class="user_textbox" id="user_input"  placeholder= "テキストを入力" autofocus>
 
                 <a type="submit" class="send_icon">
                     <i class="fa-solid fa-paper-plane" id="user_submit">
@@ -42,10 +42,12 @@
 
             </form>
             
+            <!--
             <form onsubmit="return false">
-                <input type="text" class="text_field" id="bot_response"  placeholder= "テキストを入力(ボット)">
+                <input type="text" class="user_textbox" id="bot_response"  placeholder= "テキストを入力(ボット)">
                 <input type="submit" value="送信" id="bot_submit">
             </form>
+            -->
         </div>
         
     </div>

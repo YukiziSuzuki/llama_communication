@@ -27,11 +27,20 @@ img{
 .chat_container{
     position: fixed;
     bottom:50px;
-    top:420px;
+    top:425px;
     width:100%;
     height:calc(465)px;
     background-color:rgba(200,200,200,0.9);
     padding: 5px 0;
+    border-top: 3px dashed #876d46b1;
+    border-bottom: 3px dashed #615748b1;
+    
+    /*横向きのスクロール禁止*/
+    overflow-x: hidden;
+    /*縦向きのスクロール許可*/
+    overflow-y: scroll;
+    /*スマホでは指でスクロール*/
+    -webkit-overflow-scrolling: touch;
 }
 
 
@@ -70,14 +79,11 @@ img{
     text-align: right;
 }
 
-.chat_container {
-    /*横向きのスクロール禁止*/
-    overflow-x: hidden;
-    /*縦向きのスクロール許可*/
-    overflow-y: scroll;
-    /*スマホでは指でスクロール*/
-    -webkit-overflow-scrolling: touch;
+
+.chat_container::-webkit-scrollbar{
+    display: none;
 }
+  
 
 #chat-ul > li{
     position: relative;
@@ -98,20 +104,26 @@ img{
     position: relative;
 }
 
-.user_textbox{
+.user_textarea{
     position: fixed;
     bottom: 0;
     width: 100%;
     background-color: white;
+    text-align: center;
+    height: 3em;
 }
 
 
-.text_field{
+.user_textbox{
     width:80%;
     background-color: #eeeeee;
-    height:1.2em;
-    
+    height: 1.4em;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: #8B8779;
+    border-style: solid;
 }
+
 .send_icon{
     color: #09858a;
 }
